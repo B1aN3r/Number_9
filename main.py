@@ -19,11 +19,26 @@ def newyear(hour):
     else:
         click.echo(f'До нового года {nydd.days} дней')
 
+class Colour(enum.Enum):
+    rd = 'Red'
+    gr = 'green'
+    ye = 'yellow'
+    bl = 'blue'
+    pr = 'purple'
+
+class Toys(enum.Enum):
+    st = 'star'
+    bl = 'ball'
+    an = 'angel'
+    sn = 'snowflake'
+
+rand_color = list(Colour._value2member_map_)
+rand_toy = list(Toys._value2member_map_)
+
+
 @cli.command()
 def toy():
-    colour = ['red', 'green', 'yellow', 'blue', 'purple']
-    toys = ['star', 'ball', 'angel', 'snowflake']
-    click.echo(f'{random.choice(colour)} {random.choice(toys)}')
+    click.echo(f'{random.choice(rand_color)} {random.choice(rand_toy)}')
     
 
 if __name__ == "__main__":
